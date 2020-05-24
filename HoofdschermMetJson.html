@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<title>Hoofdscherm activiteiten</title>
+<link rel="stylesheet" type="text/css" href="css/hoofdscherm.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+<body>
+ <header> <h1> Titel van de website</h1>
+  <p id = "introductie"> In deze corona tijd moeten we noodgedwongen fysieke afstand van elkaar bewaren. Om mentaal en fysiek een beetje fit te blijven wordt aangeraden verantwoord activiteiten te ondernemen, van een digitale vrijdagmiddagborrel en pubquiz tot een blokje om of een boek lezen. Op deze website vind je een overzicht van activiteiten die je nog wél mag doen.  </p>
+
+<div class = "plaatjes-container">
+
+   <div><img src= "images/man-in-white-t-shirt.jpg" alt = "man-in-white-t-shirt" title = "man-in-white-t-shirt" width = "350"/> <!--Hier later CSS toevoegen en extra plaatjes--></div>
+    <div><img src= "images/man-in-white-t-shirt.jpg" alt = "man-in-white-t-shirt" title = "man-in-white-t-shirt" width = "350" /> <!--Hier later CSS toevoegen en extra plaatjes--></div>
+     <div><img src= "images/man-in-white-t-shirt.jpg" alt = "man-in-white-t-shirt" title = "man-in-white-t-shirt" width = "350" /> <!--Hier later CSS toevoegen en extra plaatjes--></div> 
+      <div><img src= "images/man-in-white-t-shirt.jpg" alt = "man-in-white-t-shirt" title = "man-in-white-t-shirt" width = "350" /> <!--Hier later CSS toevoegen en extra plaatjes--></div>  </div>
+    </header>
+
+<!--<form id= "filters">-->
+<div class = "filter-container">
+ <!--action = "link naar script actie"-->
+<div> <p><b>Soort activiteit</b></p>
+<select id = "activiteit" name = "activiteit" onChange="showResults();"> 
+<option selected = "selected" value = "0">type</option><!--eventueel id= "naam" toevoegen als javascript nodig is -->
+<!--<option value = "buiten">Buiten </option>
+<option value = "binnen">Binnen </option>--></select> </div>
+
+
+ <!--action = "link naar script actie"-->
+<div><p><b>Budget</b></p>
+<select id = "budget" name = "budget" > 
+<option value = "gratis"> Gratis</option><!--eventueel id= "naam" toevoegen als javascript nodig is -->
+<option value = "1-10 ">1-10 </option>
+<option value = "11-20">11-20 </option></select></div>
+
+
+<div> <!--action = "link naar script actie"-->
+<p><b>Leeftijd</b></p>
+<select id = "leeftijd" name = "leeftijd"> 
+<option value = "alle leeftijden"> Alle leeftijden</option><!--eventueel id= "naam" toevoegen als javascript nodig is -->
+<option value = "0-10 ">0-10</option>
+<option value = "11-20">11-20 </option></select></div>
+
+ <div><!--action = "link naar script actie"-->
+<p><b>Aantal</b></p>
+<select id = "aantal" name = "aantal"> 
+<option value = "10"> 10</option><!--eventueel id= "naam" toevoegen als javascript nodig is -->
+<option value = "20 ">20 </option>
+<option value = "30">30 </option></select></div>
+</div> <!--</form>-->
+<!--Alles tussen div moet zelfde stijl hebben-->
+
+
+  <ul id = "resultaten" class = "accordion">
+    <li><button class = "accordion-control">
+    Buiten spelen</button>
+    <div class = "accordion-panel">
+      <div class = "accordion-informatie"> 
+    <div> Budget <!--<button>Wijzig</button>--></div> 
+    <div>leeftijd <!--<button> Wijzig </button> --></div> 
+    <div>soort activiteit <!--<button>Wijzig</button>--></div> </div>
+    <div class = "accordion-afbeelding"> <img src= "images/man-in-white-t-shirt.jpg" alt = "man-in-white-t-shirt" title = "man-in-white-t-shirt"> <!-- <button>Wijzig</button>--></div>
+    <div class = "accordion-omschrijving"> Omschrijving van de activiteit <!--<button>wijzig</button>--></div>
+  </div>
+     </li>
+<!--
+   <li><button class = "accordion-control">
+    Fietsen</button>
+     <div class = "accordion-panel">
+    <div class = "accordion-informatie"> 
+    <div> Budget </div> 
+    <div>leeftijd </div> 
+    <div>soort activiteit </div> </div>
+     <div class = "accordion-afbeelding"> <img src= "images/man-in-white-t-shirt.jpg" alt = "man-in-white-t-shirt" title = "man-in-white-t-shirt"> </div>
+    <div class = "accordion-omschrijving"> Omschrijving van de activiteit </div>
+  </div>
+     </li>
+
+       <li><button class = "accordion-control">
+   Knutselen</button>
+    <div class = "accordion-panel">
+    <div class = "accordion-informatie">
+   <div> Budget </div> 
+    <div>leeftijd </div> 
+    <div>soort activiteit </div> </div>
+     <div class = "accordion-afbeelding"><img src= "images/man-in-white-t-shirt.jpg" alt = "man-in-white-t-shirt" title = "man-in-white-t-shirt"> </div>
+    <div class = "accordion-omschrijving"> Omschrijving van de activiteit </div>
+  </div>
+
+     </li>
+     --></ul>
+
+
+ 
+<script src = "js/jquery.min.js"></script>
+
+<script src = "js/hoofdscherm.js"></script>
+<script>
+
+$(document).ready(function(){
+
+
+  getData ("/php/getcategorie.php", listCategory);
+  getData ("/php/getactivities.php", listActivities);
+
+
+
+  console.log("document is ready");
+  });</script>
+  <script>  
+    function getData (surl, callback) {
+
+
+    //alert(surl);
+
+    $.ajax({
+      url: surl,
+
+      method: 'GET',
+      dataType: 'json',
+      success: callback,
+      error: function(requestObject, error, errorThrown) {
+
+        console.log("error thrown, add handler to exit gracefully");
+      },
+      timeout: 3000 //to do: research and develop further in combination with error handling
+      });
+    return false;
+    };
+
+    </script>
+    <script>
+  function listCategory(jsonrecordset) {
+    var s = "";
+      s = "<option selected='selected' value='0'>Categorie</option>";
+    
+      for(var i=0; i < jsonrecordset.length;i++) {
+     
+      s = s + "<option value='" + jsonrecordset[i].CategoryCode + "'>" + jsonrecordset[i].CategoryName + "</option>";
+ }
+    
+    
+     document.getElementById("activiteit").innerHTML = s; //hardcoded values and globals are best avoided!!
+
+    }
+ 
+  </script>
+
+  <script>
+  function listActivities(jsonrecordset) {
+    var s = "";
+    
+      for(var i=0; i < jsonrecordset.length;i++) {
+      
+      //<li>Vissen <a href="/editactivity.html?id=19">EDIT</a></li>
+      
+      s = s + "<li><button class = 'accordion-control'>"+ jsonrecordset[i].ActivityName + "</button>"
+      //"<div class = 'accordion-panel'>"
+      //"<div class = 'accordion-informatie'>"
+    //  "<div>"+ jsonrecordset[i].ActivityCost+ "</div> 
+
+      "</div></div></li>";
+
+      }
+    //alert(s);
+    //console.log(s);
+    
+     document.getElementById("resultaten").innerHTML = s; //hardcoded values and globals are best avoided!!
+
+    }
+  
+  </script>
+
+
+
+</body>
+
+</html>

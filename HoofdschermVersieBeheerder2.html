@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<title>Hoofdscherm activiteiten</title>
+<link rel="stylesheet" type="text/css" href="css/hoofdschermversiebeheerder2.css" />
+
+</head>
+
+<body>
+ <header> <h1> Titel van de website</h1>
+  <p id = "introductie"> In deze corona tijd moeten we noodgedwongen fysieke afstand van elkaar bewaren. Om mentaal en fysiek een beetje fit te blijven wordt aangeraden verantwoord activiteiten te ondernemen, van een digitale vrijdagmiddagborrel en pubquiz tot een blokje om of een boek lezen. Op deze website vind je een overzicht van activiteiten die je nog wél mag doen.  </p>
+
+<div class = "plaatjes-container">
+
+   <div><img src= "images/man-in-white-t-shirt.jpg" alt = "man-in-white-t-shirt" title = "man-in-white-t-shirt" width = "350"/> <!--Hier later CSS toevoegen en extra plaatjes--></div>
+    <div><img src= "images/man-in-white-t-shirt.jpg" alt = "man-in-white-t-shirt" title = "man-in-white-t-shirt" width = "350" /> <!--Hier later CSS toevoegen en extra plaatjes--></div>
+     <div><img src= "images/man-in-white-t-shirt.jpg" alt = "man-in-white-t-shirt" title = "man-in-white-t-shirt" width = "350" /> <!--Hier later CSS toevoegen en extra plaatjes--></div> 
+      <div><img src= "images/man-in-white-t-shirt.jpg" alt = "man-in-white-t-shirt" title = "man-in-white-t-shirt" width = "350" /> <!--Hier later CSS toevoegen en extra plaatjes--></div>  </div>
+    </header>
+<div class = "filter-container">
+ <!--action = "link naar script actie"-->
+<div><p><b>Soort activiteit</b></p>
+<select name = "Activiteit"> 
+<option value = "geen waarde">""</option><!--eventueel id= "naam" toevoegen als javascript nodig is -->
+<option value = "Buiten">Buiten </option>
+<option value = "Binnen">Binnen </option></select> </div>
+
+
+ <!--action = "link naar script actie"-->
+<div><p><b>Budget</b></p>
+<select name = "budget"> 
+<option value = "Gratis"> Gratis</option><!--eventueel id= "naam" toevoegen als javascript nodig is -->
+<option value = "1-10 ">1-10 </option>
+<option value = "11-20">11-20 </option></select></div>
+
+
+<div> <!--action = "link naar script actie"-->
+<p><b>Leeftijd</b></p>
+<select name = "leeftijd"> 
+<option value = "Alle leeftijden"> Alle leeftijden</option><!--eventueel id= "naam" toevoegen als javascript nodig is -->
+<option value = "0-10 ">0-10</option>
+<option value = "11-20">11-20 </option></select></div>
+
+ <div><!--action = "link naar script actie"-->
+<p><b>Aantal</b></p>
+<select name = "aantal"> 
+<option value = "10"> 10</option><!--eventueel id= "naam" toevoegen als javascript nodig is -->
+<option value = "20 ">20 </option>
+<option value = "30">30 </option></select></div>
+</div>
+
+  <ul class = "accordion">
+    <li><button class = "accordion-control">
+    Buiten spelen(wijzig)</button>
+    <div class = "accordion-panel"> 
+      <div class = "accordion-informatie"> 
+    <div> Budget </div> 
+    <div>leeftijd </div> 
+    <div>soort activiteit </div> </div>
+    <div class = "accordion-afbeelding"> <img src= "images/man-in-white-t-shirt.jpg" alt = "man-in-white-t-shirt" title = "man-in-white-t-shirt"> </div>
+    <div class = "accordion-omschrijving"> Omschrijving van de activiteit </div>
+  </div>
+     </li>
+
+   <li><button class = "accordion-control">
+    Fietsen (wijzig)</button>
+     <div class = "accordion-panel">
+    <div class = "accordion-informatie"> 
+     <div> Budget </div> 
+    <div>leeftijd </div> 
+    <div>soort activiteit </div></div>
+     <div class = "accordion-afbeelding"> <img src= "images/man-in-white-t-shirt.jpg" alt = "man-in-white-t-shirt" title = "man-in-white-t-shirt"> </div>
+    <div class = "accordion-omschrijving"> Omschrijving van de activiteit </div>
+  </div>
+     </li>
+
+       <li><button class = "accordion-control">
+   Knutselen (wijzig)</button>
+    <div class = "accordion-panel">
+    <div class = "accordion-informatie">
+  <div> Budget </div> 
+    <div>leeftijd </div> 
+    <div>soort activiteit </div> </div>
+     <div class = "accordion-afbeelding"><img src= "images/man-in-white-t-shirt.jpg" alt = "man-in-white-t-shirt" title = "man-in-white-t-shirt"> </div>
+    <div class = "accordion-omschrijving"> Omschrijving van de activiteit</div>
+  </div>
+
+     </li></ul>
+
+
+</body>
+
+</html>
